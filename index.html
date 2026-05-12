@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>蔚凝 · Coming Soon</title>
+  <meta name="description" content="A new site is being made — coming soon." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400&display=swap" />
+
+  <style>
+    :root {
+      --bg: #0b0f0c;
+      --ink: #cfe8d4;
+      --soft: #5d7a64;
+      --line: rgba(207, 232, 212, 0.16);
+      --dot: #7fd49b;
+      --serif: "Cormorant Garamond", "Songti TC", serif;
+      --mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body { min-height: 100vh; }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* subtle vignette */
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.45) 100%);
+      z-index: 1;
+    }
+
+    /* paper grain */
+    .grain {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.18;
+      mix-blend-mode: screen;
+      z-index: 2;
+    }
+
+    .topbar, .footbar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 44px;
+      color: var(--soft);
+    }
+
+    .mono {
+      font-family: var(--mono);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .small { font-size: 10.5px; }
+
+    .status { display: inline-flex; align-items: center; gap: 10px; }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--dot);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--dot);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.35); }
+    }
+
+    .footbar {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+    }
+
+    .stage {
+      position: relative;
+      z-index: 3;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 48px 80px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 64px;
+      color: var(--soft);
+    }
+    .eyebrow-line {
+      width: 64px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .hero {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 300;
+      line-height: 0.88;
+      font-size: clamp(96px, 18vw, 240px);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: breathe 7s ease-in-out infinite;
+    }
+    .hero-line { display: block; }
+    .hero-line.italic {
+      font-style: italic;
+      margin-top: -0.06em;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 1;    letter-spacing: -0.01em; }
+      50%      { opacity: 0.88; letter-spacing: 0.005em; }
+    }
+
+    .rule {
+      width: 56px;
+      height: 1px;
+      background: var(--ink);
+      opacity: 0.55;
+      margin: 56px 0 24px;
+    }
+
+    .sub { color: var(--soft); margin: 0; }
+
+    /* rotating seal */
+    .seal {
+      position: absolute;
+      right: 56px;
+      bottom: 60px;
+      width: 96px;
+      height: 96px;
+      color: var(--soft);
+      opacity: 0.65;
+      animation: sealspin 18s linear infinite;
+    }
+    .seal svg { width: 100%; height: 100%; }
+    .seal-txt { fill: currentColor; font-family: var(--mono); }
+    .seal-mono {
+      fill: var(--ink);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+    }
+
+    @keyframes sealspin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 720px) {
+      .topbar, .footbar { padding: 22px 22px; }
+      .stage { padding: 24px 22px 60px; }
+      .eyebrow-line { width: 36px; }
+      .seal { right: 22px; bottom: 70px; width: 72px; height: 72px; }
+      .rule { margin: 40px 0 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- paper grain -->
+    <svg class="grain" aria-hidden="true">
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noise)" />
+    </svg>
+
+    <header class="topbar">
+      <span class="mono small">●&nbsp;&nbsp;001</span>
+      <span class="status mono small">
+        <span class="status-dot"></span>
+        <span>OFFLINE</span>
+      </span>
+    </header>
+
+    <main class="stage">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="mono small">A NEW SITE IS BEING MADE</span>
+        <span class="eyebrow-line"></span>
+      </div>
+
+      <h1 class="hero">
+        <span class="hero-line">Coming</span>
+        <span class="hero-line italic">soon.</span>
+      </h1>
+
+      <div class="rule"></div>
+
+      <p class="sub mono small">— STAY WITH US —</p>
+
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.4" />
+          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="0.3" />
+          <path id="seal-arc-top" d="M 12 50 A 38 38 0 0 1 88 50" fill="none" />
+          <path id="seal-arc-bot" d="M 88 50 A 38 38 0 0 1 12 50" fill="none" />
+          <text class="seal-txt" font-size="4" letter-spacing="3">
+            <textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">— SITE IN PROGRESS —</textPath>
+          </text>
+          <text class="seal-txt" font-size="4" letter-spacing="3">
+            <textPath href="#seal-arc-bot" startOffset="50%" text-anchor="middle">RETURNING SOON</textPath>
+          </text>
+          <text class="seal-mono" x="50" y="50" text-anchor="middle" dominant-baseline="central">WN</text>
+        </svg>
+      </div>
+    </main>
+
+    <footer class="footbar">
+      <span class="mono small">© —</span>
+      <span class="mono small">CH · 01</span>
+    </footer>
+  </div>
+</body>
+</html>
