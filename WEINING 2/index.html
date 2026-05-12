@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蔚凝管理顧問 | 數據驅動的餐飲營運專家</title>
+  <meta name="description" content="把混亂的現場，整理成可以被交接的制度。蔚凝提供長期駐點營運優化與 Weining Nexus 一站式管理系統。">
+  <link rel="canonical" href="https://www.weiningconsulting.com/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Weining Management Consulting">
+  <meta name="keywords" content="餐飲營運顧問,管理顧問,駐點顧問,SOP,Weining Nexus,蔚凝管理顧問,餐飲管理系統">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="蔚凝管理顧問 Weining Management Consulting">
+  <meta property="og:url" content="https://www.weiningconsulting.com/">
+  <meta property="og:title" content="蔚凝管理顧問 Weining Management Consulting">
+  <meta property="og:description" content="讓營運數據透明化，為您的餐飲品牌建立帶得走的管理制度。">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="蔚凝管理顧問 Weining Management Consulting">
+  <meta property="og:locale" content="zh_TW">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="蔚凝管理顧問 Weining Management Consulting">
+  <meta name="twitter:description" content="讓營運數據透明化，為您的餐飲品牌建立帶得走的管理制度。">
+  <meta name="twitter:image" content="og-image.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0e2a20">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style id="genryu-font">
+    @font-face {
+      font-family: 'GenRyuMin2 TC';
+      src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/genryu-font@master/TC/GenRyuMin2TC-L.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'GenRyuMin2 TC';
+      src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/genryu-font@master/TC/GenRyuMin2TC-R.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'GenRyuMin2 TC';
+      src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/genryu-font@master/TC/GenRyuMin2TC-M.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'GenRyuMin2 TC';
+      src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/genryu-font@master/TC/GenRyuMin2TC-SB.woff2') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+    }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans TC', 'PingFang TC', sans-serif;
+      background: #1b1a1a;
+      color: #e8e4de;
+      overflow-x: hidden;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(.22,.68,0,1.2), transform 0.85s cubic-bezier(.22,.68,0,1.2);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .fade-in:nth-child(4) { transition-delay: 0.3s; }
+    html { scrollbar-color: #c4a96a #111111; scrollbar-width: thin; }
+    ::-webkit-scrollbar { width: 1px; }
+    ::-webkit-scrollbar-track { background: #111111; }
+    ::-webkit-scrollbar-thumb { background: #c4a96a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d9bf83; }
+    @keyframes weining-spin { to { transform: rotate(360deg); } }
+    @keyframes weining-fadein { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(12px); } }
+
+    /* ---- Mobile responsive ---- */
+    @media (max-width: 768px) {
+      /* Section padding: 10% → 6% with smaller vertical */
+      #root section[style*="10%"] { padding-left: 6% !important; padding-right: 6% !important; }
+      #root [style*="padding: 120px 10%"], #root [style*="padding: 110px 10%"], #root [style*="padding: 100px 10%"] { padding-top: 70px !important; padding-bottom: 70px !important; }
+      #root [style*="padding: 90px 10%"] { padding-top: 60px !important; padding-bottom: 60px !important; }
+
+      /* All 2-col / 4-col grids stack vertically */
+      #root [style*="gridTemplateColumns: 'repeat(2, 1fr)'"],
+      #root [style*="gridTemplateColumns: '1fr 1fr'"],
+      #root [style*="gridTemplateColumns: '1fr 1.1fr'"],
+      #root [style*="grid-template-columns: repeat(2, 1fr)"],
+      #root [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+      #root [style*="gridTemplateColumns: 'repeat(4, 1fr)'"],
+      #root [style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+      }
+
+      /* Process timeline: stack number above content */
+      #root [style*="grid-template-columns: 180px 1fr"],
+      #root [style*="gridTemplateColumns: '180px 1fr'"] {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        padding: 36px 0 !important;
+      }
+      #root [style*="font-size: 6.5rem"] { font-size: 4.2rem !important; }
+
+      /* Hero h1 / large headings */
+      #root h1[style*="4.8rem"], #root h1[style*="font-size: 4.8rem"] { font-size: 2.4rem !important; letter-spacing: 3px !important; line-height: 1.15 !important; }
+      #root h1[style*="2.6rem"] { font-size: 1.9rem !important; }
+      #root h1[style*="2rem"] { font-size: 1.6rem !important; letter-spacing: 3px !important; }
+      #root h2[style*="2.8rem"] { font-size: 1.7rem !important; letter-spacing: 2px !important; }
+      #root h2[style*="font-size: 2.2rem"] { font-size: 1.5rem !important; letter-spacing: 2px !important; }
+      #root h2[style*="font-size: 2rem"] { font-size: 1.45rem !important; letter-spacing: 2px !important; }
+      #root h3[style*="1.7rem"] { font-size: 1.2rem !important; letter-spacing: 1.5px !important; }
+      #root h3[style*="1.6rem"] { font-size: 1.15rem !important; }
+      #root [style*="font-size: 1.25rem"] { font-size: 1rem !important; }
+
+      /* Principles big number */
+      #root .principle-num { font-size: 7rem !important; right: 18px !important; top: 14px !important; }
+
+      /* Card padding shrink */
+      #root [style*="padding: 70px 56px"] { padding: 44px 28px !important; min-height: auto !important; }
+      #root [style*="padding: 60px 48px"] { padding: 38px 24px !important; }
+      #root [style*="padding: 48px 40px"] { padding: 32px 22px !important; }
+      #root [style*="padding: 36px 28px"] { padding: 26px 18px !important; min-height: 140px !important; }
+
+      /* CTA band stack */
+      #root [style*="justify-content: space-between"][style*="flex-wrap: wrap"] { flex-direction: column !important; align-items: flex-start !important; }
+
+      /* FAQ accordion: 48px hit area + tighter padding */
+      #root button[style*="padding: 32px 0"] { padding: 22px 4px !important; min-height: 56px !important; gap: 18px !important; }
+      #root button[style*="padding: 32px 0"] span[style*="min-width: 60px"] { min-width: 44px !important; font-size: 1.4rem !important; }
+      #root button[style*="padding: 32px 0"] span[style*="font-size: 1.1rem"] { font-size: 1rem !important; line-height: 1.55 !important; }
+      #root [style*="padding: 0 0 38px 88px"] { padding: 0 4px 28px 62px !important; }
+
+      /* Form 2-col → 1-col already handled by grid rule */
+      #root form input, #root form textarea { font-size: 16px !important; /* avoid iOS zoom */ }
+
+      /* Engagement section gap */
+      #root [style*="gap: 80px"] { gap: 32px !important; }
+
+      /* Footer */
+      footer { padding: 50px 6% !important; }
+
+      /* Hide desktop nav, show hamburger */
+      .nav-desktop { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+
+      /* Quote block letter-spacing tighter */
+      #root blockquote p { font-size: 1.05rem !important; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none !important; }
+      .nav-mobile-panel { display: none !important; }
+    }
+    input, textarea, button { font-family: inherit; }
+    #root [style*="0.7rem"] { font-size: 0.92rem !important; }
+    #root [style*="0.72rem"] { font-size: 0.92rem !important; }
+    #root [style*="0.78rem"] { font-size: 0.9rem !important; }
+    #root [style*="0.8rem"]:not([style*="0.82rem"]):not([style*="0.88rem"]) { font-size: 0.92rem !important; }
+    #root [style*="0.84rem"] { font-size: 0.94rem !important; }
+    #root [style*="0.85rem"] { font-size: 0.95rem !important; }
+    #root [style*="0.86rem"] { font-size: 0.96rem !important; }
+    #root [style*="0.88rem"] { font-size: 0.98rem !important; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+
+
+
+const { useState, useEffect, useRef } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "elegant",
+  "accentColor": "#c4a96a"
+} /*EDITMODE-END*/;
+
+const THEMES = {
+  elegant: {
+    bg: "#1b1a1a",
+    bgDeep: "#141313",
+    bgGreen: "#1b3a2d",
+    bgGreenHover: "#244d3c",
+    text: "#e8e4de",
+    textDim: "#7a7570",
+    headingFont: "'Cormorant Garamond', serif",
+    bodyFont: "'GenRyuMin2 TC', 'Noto Serif TC', serif",
+    navBg: "#1b3a2d",
+    cardBg: "#222120",
+    cardBgHover: "#1b3a2d",
+    borderColor: "rgba(228,227,226,0.12)",
+    heroAlign: "center",
+    headingSize: "4.8rem",
+    headingWeight: 300,
+    navTextColor: "rgba(255,255,255,0.82)"
+  },
+  modern: {
+    bg: "#101010",
+    bgDeep: "#0a0a0a",
+    bgGreen: "#131313",
+    bgGreenHover: "#1b3a2d",
+    text: "#f0ece6",
+    textDim: "#6e6e66",
+    headingFont: "'Noto Serif TC', serif",
+    bodyFont: "'GenRyuMin2 TC', 'Noto Serif TC', serif",
+    navBg: "#101010",
+    cardBg: "#181818",
+    cardBgHover: "#1b3a2d",
+    borderColor: "rgba(74,140,106,0.25)",
+    heroAlign: "left",
+    headingSize: "3.8rem",
+    headingWeight: 500,
+    navTextColor: "rgba(255,255,255,0.75)"
+  }
+};
+
+// ---- Animated Green Dots ----
+const DOT_CSS = `
+@keyframes wn-float {
+  0%   { transform: translateY(0px) scale(1);   opacity: var(--op0); }
+  50%  { transform: translateY(-22px) scale(1.18); opacity: var(--op1); }
+  100% { transform: translateY(0px) scale(1);   opacity: var(--op0); }
+}
+@keyframes wn-pulse {
+  0%, 100% { box-shadow: 0 0 8px 3px rgba(74,210,130,0.5); }
+  50%       { box-shadow: 0 0 22px 8px rgba(74,210,130,0.85); }
+}
+.wn-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(80, 210, 130, 0.7);
+  animation: wn-float var(--dur) ease-in-out infinite, wn-pulse var(--dur2) ease-in-out infinite;
+  pointer-events: none;
+}
+`;
+
+function injectDotCSS() {
+  if (document.getElementById('wn-dot-style')) return;
+  const s = document.createElement('style');
+  s.id = 'wn-dot-style';
+  s.textContent = DOT_CSS;
+  document.head.appendChild(s);
+}
+
+const DOT_CONFIGS = [
+{ left: '4%', top: '10%', size: 2, dur: '4.1s', dur2: '2.8s', op0: 0.3, op1: 0.65 },
+{ left: '11%', top: '65%', size: 2, dur: '5.3s', dur2: '3.2s', op0: 0.2, op1: 0.55 },
+{ left: '18%', top: '32%', size: 3, dur: '3.7s', dur2: '2.4s', op0: 0.3, op1: 0.7 },
+{ left: '25%', top: '82%', size: 2, dur: '6.1s', dur2: '4.1s', op0: 0.18, op1: 0.5 },
+{ left: '32%', top: '20%', size: 2, dur: '4.8s', dur2: '3.5s', op0: 0.25, op1: 0.6 },
+{ left: '38%', top: '55%', size: 3, dur: '5.6s', dur2: '2.9s', op0: 0.2, op1: 0.55 },
+{ left: '44%', top: '88%', size: 2, dur: '7.0s', dur2: '4.5s', op0: 0.15, op1: 0.45 },
+{ left: '50%', top: '15%', size: 3, dur: '4.3s', dur2: '2.7s', op0: 0.28, op1: 0.62 },
+{ left: '56%', top: '70%', size: 2, dur: '5.1s', dur2: '3.4s', op0: 0.2, op1: 0.52 },
+{ left: '63%', top: '38%', size: 2, dur: '6.4s', dur2: '4.0s', op0: 0.22, op1: 0.58 },
+{ left: '70%', top: '8%', size: 3, dur: '3.9s', dur2: '2.5s', op0: 0.28, op1: 0.65 },
+{ left: '76%', top: '58%', size: 2, dur: '5.8s', dur2: '3.8s', op0: 0.18, op1: 0.48 },
+{ left: '83%', top: '28%', size: 2, dur: '4.6s', dur2: '3.0s', op0: 0.25, op1: 0.6 },
+{ left: '88%', top: '75%', size: 3, dur: '6.2s', dur2: '4.2s', op0: 0.2, op1: 0.5 },
+{ left: '94%', top: '45%', size: 2, dur: '5.0s', dur2: '3.3s', op0: 0.22, op1: 0.55 },
+{ left: '7%', top: '88%', size: 2, dur: '7.3s', dur2: '4.8s', op0: 0.15, op1: 0.42 },
+{ left: '22%', top: '48%', size: 2, dur: '4.5s', dur2: '2.9s', op0: 0.2, op1: 0.5 },
+{ left: '47%', top: '42%', size: 2, dur: '5.5s', dur2: '3.6s', op0: 0.22, op1: 0.55 },
+{ left: '60%', top: '90%', size: 2, dur: '6.8s', dur2: '4.4s', op0: 0.15, op1: 0.42 },
+{ left: '79%', top: '15%', size: 2, dur: '4.0s', dur2: '2.6s', op0: 0.25, op1: 0.6 }];
+
+
+function FloatingDots() {
+  useEffect(() => {injectDotCSS();}, []);
+  return (
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
+      {DOT_CONFIGS.map((d, i) =>
+      <span key={i} className="wn-dot" style={{
+        left: d.left, top: d.top,
+        width: d.size, height: d.size,
+        '--dur': d.dur, '--dur2': d.dur2,
+        '--op0': d.op0, '--op1': d.op1,
+        animationDelay: `${i * 0.43 % 3}s, ${i * 0.31 % 2}s`
+      }} />
+      )}
+    </div>);
+
+}
+
+// ---- Scroll observer ----
+function useScrollFade(dep) {
+  useEffect(() => {
+    const run = () => {
+      const els = document.querySelectorAll('.fade-in:not(.visible)');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {if (e.isIntersecting) e.target.classList.add('visible');});
+      }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+      els.forEach((el) => obs.observe(el));
+      return obs;
+    };
+    const obs = run();
+    return () => obs.disconnect();
+  }, [dep]);
+}
+
+// ---- NAV ----
+function Nav({ t, page, setPage }) {
+  const [dropOpen, setDropOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
+  const go = (id) => { setPage(id); setMobileOpen(false); setDropOpen(false); };
+
+  const navBg = t.theme === 'modern' ?
+  scrolled ? 'rgba(16,16,16,0.97)' : t.navBg :
+  t.navBg;
+
+  const nav = {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    padding: '0 5%', background: navBg, position: 'sticky', top: 0, zIndex: 300,
+    height: '88px', borderBottom: `1px solid ${t.borderColor}`,
+    transition: 'background 0.4s, box-shadow 0.3s',
+    boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.4)' : 'none'
+  };
+
+  const link = (active) => ({
+    color: active ? '#fff' : t.navTextColor,
+    fontFamily: t.bodyFont, fontSize: '0.88rem', letterSpacing: '1px',
+    cursor: 'pointer', padding: '6px 0',
+    borderBottom: `1px solid ${active ? 'rgba(255,255,255,0.45)' : 'transparent'}`,
+    transition: 'all 0.22s', textDecoration: 'none', display: 'block'
+  });
+
+  return (
+    <nav style={nav}>
+      <div style={{ cursor: 'pointer', lineHeight: 0 }} onClick={() => go('home')}>
+        <img src="WEINING logo.png" alt="蔚凝管理顧問 Weining Management Consulting" style={{ width: "70px", height: "70px", display: "block", imageRendering: "-webkit-optimize-contrast" }} />
+      </div>
+      <button className="nav-hamburger" onClick={() => setMobileOpen(!mobileOpen)} aria-label="選單" style={{
+        display: 'none', background: 'transparent', border: 'none', cursor: 'pointer',
+        padding: '12px', flexDirection: 'column', gap: '6px', minWidth: '48px', minHeight: '48px',
+        alignItems: 'center', justifyContent: 'center'
+      }}>
+        <span style={{ width: '26px', height: '1.5px', background: '#fff', transition: 'transform 0.3s', transform: mobileOpen ? 'translateY(8px) rotate(45deg)' : 'none' }} />
+        <span style={{ width: '26px', height: '1.5px', background: '#fff', transition: 'opacity 0.2s', opacity: mobileOpen ? 0 : 1 }} />
+        <span style={{ width: '26px', height: '1.5px', background: '#fff', transition: 'transform 0.3s', transform: mobileOpen ? 'translateY(-7px) rotate(-45deg)' : 'none' }} />
+      </button>
+      <ul className="nav-desktop" style={{ display: 'flex', listStyle: 'none', alignItems: 'center', gap: '2.2rem' }}>
+        {[['home', '首頁'], ['about', '關於蔚凝']].map(([id, label]) =>
+        <li key={id}><a style={link(page === id)} onClick={() => setPage(id)}>{label}</a></li>
+        )}
+        <li style={{ position: 'relative' }}
+        onMouseEnter={() => setDropOpen(true)} onMouseLeave={() => setDropOpen(false)}>
+          <a style={{ ...link(page === 'operations' || page === 'nexus'), whiteSpace: 'nowrap' }}>服務項目 ▾</a>
+          {dropOpen &&
+          <div style={{
+            position: 'absolute', top: '100%', left: '-12px',
+            background: '#1a1a1a', border: `1px solid ${t.borderColor}`,
+            minWidth: '180px', boxShadow: '0 12px 40px rgba(0,0,0,0.6)', zIndex: 400
+          }}>
+              {[['operations', '營運管理顧問服務'], ['nexus', 'WEINING NEXUS']].map(([id, label]) =>
+            <div key={id} onClick={() => {setPage(id);setDropOpen(false);}}
+            style={{ padding: '14px 20px', color: 'rgba(255,255,255,0.78)', fontFamily: t.bodyFont,
+              fontSize: '0.86rem', cursor: 'pointer', borderBottom: `1px solid ${t.borderColor}`,
+              letterSpacing: '0.5px', transition: 'all 0.2s', whiteSpace: 'nowrap' }}
+            onMouseEnter={(e) => {e.currentTarget.style.background = t.bgGreenHover;e.currentTarget.style.color = '#fff';}}
+            onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';e.currentTarget.style.color = 'rgba(255,255,255,0.78)';}}>
+                  {label}
+                </div>
+            )}
+            </div>
+          }
+        </li>
+        <li>
+          <button onClick={() => setPage('contact')} style={{
+            background: 'transparent', border: `1px solid rgba(255,255,255,0.35)`,
+            color: 'rgba(255,255,255,0.85)', padding: '9px 22px',
+            fontFamily: t.bodyFont, fontSize: '0.86rem', letterSpacing: '1.5px',
+            cursor: 'pointer', transition: 'all 0.22s'
+          }}
+          onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(255,255,255,0.08)';e.currentTarget.style.borderColor = 'rgba(255,255,255,0.6)';}}
+          onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)';}}>
+            聯絡我們
+          </button>
+        </li>
+      </ul>
+      <div className="nav-mobile-panel" style={{
+        position: 'fixed', top: '88px', left: 0, right: 0,
+        background: '#0e2a20', borderTop: `1px solid ${t.borderColor}`,
+        maxHeight: mobileOpen ? 'calc(100vh - 88px)' : '0',
+        overflow: 'hidden', transition: 'max-height 0.4s ease-out',
+        zIndex: 290, boxShadow: '0 12px 40px rgba(0,0,0,0.5)'
+      }}>
+        <ul style={{ listStyle: 'none', padding: '24px 6%', margin: 0 }}>
+          {[['home', '首頁'], ['about', '關於蔚凝']].map(([id, label]) =>
+          <li key={id} onClick={() => go(id)} style={{
+            padding: '18px 4px', minHeight: '56px',
+            color: page === id ? '#c4a96a' : 'rgba(255,255,255,0.92)',
+            fontFamily: t.bodyFont, fontSize: '1.05rem', letterSpacing: '2px',
+            cursor: 'pointer', borderBottom: `1px solid rgba(255,255,255,0.08)`,
+            display: 'flex', alignItems: 'center'
+          }}>{label}</li>
+          )}
+          <li style={{ borderBottom: `1px solid rgba(255,255,255,0.08)` }}>
+            <div onClick={() => setMobileSvcOpen(!mobileSvcOpen)} style={{
+              padding: '18px 4px', minHeight: '56px',
+              color: (page === 'operations' || page === 'nexus') ? '#c4a96a' : 'rgba(255,255,255,0.92)',
+              fontFamily: t.bodyFont, fontSize: '1.05rem', letterSpacing: '2px',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
+            }}>
+              <span>服務項目</span>
+              <span style={{
+                fontFamily: "'Cormorant Garamond', serif", fontSize: '1.4rem', fontWeight: 300,
+                transform: mobileSvcOpen ? 'rotate(45deg)' : 'rotate(0)',
+                transition: 'transform 0.3s ease-out', lineHeight: 1
+              }}>+</span>
+            </div>
+            <div style={{
+              maxHeight: mobileSvcOpen ? '200px' : '0',
+              overflow: 'hidden', transition: 'max-height 0.35s ease-out'
+            }}>
+              {[['operations', '營運管理顧問服務'], ['nexus', 'WEINING NEXUS']].map(([id, label]) =>
+              <div key={id} onClick={() => go(id)} style={{
+                padding: '14px 4px 14px 20px', minHeight: '48px',
+                color: page === id ? '#c4a96a' : 'rgba(255,255,255,0.7)',
+                fontFamily: t.bodyFont, fontSize: '0.95rem', letterSpacing: '1.5px',
+                cursor: 'pointer', display: 'flex', alignItems: 'center'
+              }}>{label}</div>
+              )}
+            </div>
+          </li>
+          <li onClick={() => go('contact')} style={{
+            padding: '18px 4px', minHeight: '56px',
+            color: page === 'contact' ? '#c4a96a' : 'rgba(255,255,255,0.92)',
+            fontFamily: t.bodyFont, fontSize: '1.05rem', letterSpacing: '2px',
+            cursor: 'pointer', borderBottom: `1px solid rgba(255,255,255,0.08)`,
+            display: 'flex', alignItems: 'center'
+          }}>聯絡我們</li>
+        </ul>
+      </div>
+    </nav>);
+
+}
+
+// ---- Shared: FAQ + CTA ----
+function FAQSection({ t, accent, items, setPage }) {
+  const [openIdx, setOpenIdx] = useState(null);
+  return (
+    <section style={{ padding: '120px 10%', background: '#000', position: 'relative' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '1rem', textTransform: 'uppercase' }} className="fade-in">FAQ</p>
+        <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '8px', fontSize: '31px', marginBottom: '70px' }} className="fade-in">常 見 問 題</h2>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          {items.map((it, i) => {
+            const open = openIdx === i;
+            return (
+              <div key={i} className="fade-in" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                <button onClick={() => setOpenIdx(open ? null : i)} style={{
+                  width: '100%', background: 'transparent', border: 'none', cursor: 'pointer',
+                  padding: '32px 0', display: 'flex', alignItems: 'flex-start', gap: '28px',
+                  textAlign: 'left', color: 'inherit'
+                }}>
+                  <span style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '1.8rem', color: accent, fontWeight: 300,
+                    minWidth: '60px', lineHeight: 1.1, letterSpacing: '1px', flexShrink: 0
+                  }}>Q{i + 1}</span>
+                  <span style={{
+                    flex: 1, fontFamily: t.bodyFont, fontSize: '1.1rem',
+                    color: '#e4e3e2', fontWeight: 300, lineHeight: 1.6, letterSpacing: '0.5px'
+                  }}>{it.q}</span>
+                  <span style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '1.6rem', color: accent, fontWeight: 300,
+                    transform: open ? 'rotate(45deg)' : 'rotate(0)',
+                    transition: 'transform 0.3s ease-out',
+                    flexShrink: 0, lineHeight: 1
+                  }}>+</span>
+                </button>
+                <div style={{
+                  maxHeight: open ? '1000px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 0.5s ease-out, opacity 0.35s ease-out',
+                  opacity: open ? 1 : 0
+                }}>
+                  <div style={{ padding: '0 0 38px 88px', maxWidth: '900px' }}>
+                    <p style={{
+                      fontFamily: t.bodyFont, fontSize: '0.98rem',
+                      color: 'rgba(232,228,222,0.78)', lineHeight: 2, fontWeight: 300
+                    }}>{it.a}</p>
+                    {it.linkLabel &&
+                    <a onClick={() => setPage && setPage(it.linkTo)} style={{
+                      display: 'inline-block', marginTop: '1.6rem',
+                      fontFamily: t.bodyFont, fontSize: '0.95rem',
+                      color: accent, letterSpacing: '2px', cursor: 'pointer',
+                      borderBottom: `1px solid ${accent}55`, paddingBottom: '4px',
+                      transition: 'border-color 0.25s'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.borderColor = accent}
+                    onMouseLeave={(e) => e.currentTarget.style.borderColor = `${accent}55`}>
+                        {it.linkLabel} →
+                      </a>
+                    }
+                  </div>
+                </div>
+              </div>);
+
+          })}
+        </div>
+      </div>
+    </section>);
+
+}
+
+function CTABand({ t, setPage }) {
+  return (
+    <section style={{ background: t.bg, padding: '110px 10%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem', position: 'relative', overflow: 'hidden' }}>
+      <FloatingDots />
+      <div>
+        <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '4px', marginBottom: '1.2rem', lineHeight: 1.3, fontSize: "29px" }} className="fade-in">想了解蔚凝能為您做什麼</h2>
+        <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.72)', fontWeight: 300, lineHeight: 1.9, fontSize: "19px" }} className="fade-in">歡迎與我們聯繫，我們會依您的店況提供初步建議與合作方向。</p>
+      </div>
+      <button onClick={() => setPage('contact')} className="fade-in" style={{
+        background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.45)',
+        padding: '16px 44px', fontFamily: t.bodyFont, fontSize: '0.95rem',
+        letterSpacing: '2.5px', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.25s'
+      }}
+      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+      onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+        預約諮詢
+      </button>
+    </section>);
+
+}
+
+// ---- HOME ----
+function HomePage({ t, accent, setPage }) {
+  useScrollFade('home');
+
+  const principles = [
+  { num: '01', en: 'On-site', title: '長期駐點', desc: '以季為單位進入現場，與團隊一起工作。\n我們相信，看得見問題的人，才能真正解決問題。' },
+  { num: '02', en: 'Cross-domain', title: '跨域整合', desc: '人事、財務、流程、品牌一次到位。\n避開單點優化的盲區，讓改變真正發生在系統層面。' },
+  { num: '03', en: 'Built to last', title: '制度落地', desc: '把判斷化成文件、把經驗變成 SOP。\n蔚凝離開後，您的團隊仍能照著節奏自行運作。' },
+  { num: '04', en: 'Long-term', title: '長期共好', desc: '我們只接季為單位的長期合作。\n陪您走過低潮、看著團隊成長，才是顧問真正的價值。' }];
+
+
+  return (
+    <div>
+      {/* Hero — 與關於蔚凝/服務項目同款 hero（深底、底部對齊、粒子背景） */}
+      <section style={{ minHeight: '70vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 90px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '720px' }}>
+          <p style={{ fontFamily: t.bodyFont, letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2.5rem', textTransform: 'uppercase', fontSize: "16.72px" }} className="fade-in">WEINING MANAGEMENT CONSULTING</p>
+          <h1 style={{ fontFamily: t.headingFont, fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '6px', marginBottom: '1.8rem', lineHeight: 1.08 }} className="fade-in">蔚凝管理顧問</h1>
+          <div style={{ width: '48px', height: '1px', background: accent, opacity: 0.85, marginBottom: '1.8rem' }} className="fade-in" />
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.95, fontWeight: 300, maxWidth: '560px' }} className="fade-in">
+            把混亂的現場，整理成可以被交接的制度。<br />
+            蔚凝以長期駐點的方式，陪伴品牌走過從零到穩定運作的每一個階段。
+          </p>
+        </div>
+      </section>
+
+      {/* 開場敘述（OUR APPROACH） */}
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        <div style={{ maxWidth: '780px' }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">OUR APPROACH</p>
+          <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '2px', marginBottom: '1.2rem', lineHeight: 1.3, fontSize: "28px" }} className="fade-in">最難的不是開店，是讓店穩定地運作。</h2>
+          <div style={{ width: '44px', height: '1px', background: accent, marginBottom: '2.5rem', opacity: 0.85 }} className="fade-in" />
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.82)', lineHeight: 2, fontWeight: 300, marginBottom: '1.8rem', fontSize: "17.5px" }} className="fade-in">
+            人員流動、帳務模糊、現場節奏失控、品牌走向偏離原本的設定——這些問題不會在開幕當天出現，卻會在營運第三個月、第六個月慢慢浮上檯面。
+          </p>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.82)', lineHeight: 2, fontWeight: 300, fontSize: "1px" }} className="fade-in">
+            蔚凝的角色，是與您一起把這些問題拆開、排序，再用結構化的方式重新組裝起來。
+          </p>
+        </div>
+      </section>
+
+      {/* 四大原則 — 首頁吸睛版：大號數字 + 半透明描邊 + 對應英文關鍵字 */}
+      <section style={{ padding: '120px 10%', background: t.bgDeep, position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '70px', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <div>
+              <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '1rem', textTransform: 'uppercase' }} className="fade-in">PRINCIPLES</p>
+              <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '2px', fontSize: '31px', lineHeight: 1.3 }} className="fade-in">為什麼選擇蔚凝</h2>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: t.borderColor }}>
+            {principles.map((p, i) =>
+            <div key={i} className="fade-in" style={{
+              background: t.bgDeep, padding: '70px 56px',
+              position: 'relative', overflow: 'hidden',
+              cursor: 'default', transition: 'all 0.4s', minHeight: '280px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#1b3a2d';
+              const num = e.currentTarget.querySelector('.principle-num');
+              if (num) {num.style.color = accent;num.style.opacity = '0.18';num.style.transform = 'translate(-8px, -8px) scale(1.08)';}
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = t.bgDeep;
+              const num = e.currentTarget.querySelector('.principle-num');
+              if (num) {num.style.color = 'transparent';num.style.opacity = '1';num.style.transform = 'translate(0,0) scale(1)';}
+            }}>
+                <span className="principle-num" style={{
+                position: 'absolute', top: '24px', right: '40px',
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: '11rem', fontWeight: 300, lineHeight: 1,
+                color: 'transparent',
+                WebkitTextStroke: `1px ${accent}80`,
+                opacity: 0.55, pointerEvents: 'none',
+                transition: 'all 0.5s cubic-bezier(.22,.68,0,1.2)'
+              }}>{p.num}</span>
+                <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '4px', color: accent, marginBottom: '1.4rem', textTransform: 'uppercase', opacity: 0.9, position: 'relative', zIndex: 1 }}>{p.en}</p>
+                <h3 style={{ fontFamily: t.headingFont, fontSize: '1.7rem', fontWeight: t.headingWeight, color: t.text, marginBottom: '1.4rem', letterSpacing: '2px', position: 'relative', zIndex: 1 }}>{p.title}</h3>
+                <div style={{ width: '32px', height: '1px', background: accent, opacity: 0.6, marginBottom: '1.4rem', position: 'relative', zIndex: 1 }} />
+                <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.78)', lineHeight: 2, fontWeight: 300, maxWidth: '420px', position: 'relative', zIndex: 1, fontSize: "15.5px", whiteSpace: 'pre-line' }}>{p.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* 兩大服務區塊導引 */}
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '60px', textTransform: 'uppercase' }} className="fade-in">WHAT WE OFFER</p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px' }}>
+          <div className="fade-in" onClick={() => setPage('operations')} style={{ background: t.cardBg, padding: '60px 48px', cursor: 'pointer', transition: 'all 0.35s' }}
+          onMouseEnter={(e) => e.currentTarget.style.background = '#1b3a2d'}
+          onMouseLeave={(e) => e.currentTarget.style.background = t.cardBg}>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '4px', color: accent, marginBottom: '1.2rem', textTransform: 'uppercase', opacity: 0.9 }}>SERVICE 01</p>
+            <h3 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, fontSize: '1.6rem', letterSpacing: '2px', marginBottom: '1.2rem' }}>營運管理顧問服務</h3>
+            <div style={{ width: '36px', height: '1px', background: accent, marginBottom: '1.5rem', opacity: 0.7 }} />
+            <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.72)', lineHeight: 1.95, fontWeight: 300, marginBottom: '2rem', fontSize: "15px" }}>月為單位的長期駐點合作。
+從人員制度、財務流程、SOP 到品牌一致性，全程協助業主重整或從零建構。
+            </p>
+            <span style={{ fontFamily: t.bodyFont, fontSize: '0.85rem', color: t.text, letterSpacing: '2px' }}>查看服務內容 →</span>
+          </div>
+          <div className="fade-in" onClick={() => setPage('nexus')} style={{ background: t.cardBg, padding: '60px 48px', cursor: 'pointer', transition: 'all 0.35s' }}
+          onMouseEnter={(e) => e.currentTarget.style.background = '#1b3a2d'}
+          onMouseLeave={(e) => e.currentTarget.style.background = t.cardBg}>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '4px', color: accent, marginBottom: '1.2rem', textTransform: 'uppercase', opacity: 0.9 }}>SERVICE 02</p>
+            <h3 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, fontSize: '1.6rem', letterSpacing: '2px', marginBottom: '1.2rem' }}>WEINING NEXUS</h3>
+            <div style={{ width: '36px', height: '1px', background: accent, marginBottom: '1.5rem', opacity: 0.7 }} />
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.92rem', color: 'rgba(232,228,222,0.72)', lineHeight: 1.95, fontWeight: 300, marginBottom: '2rem' }}>一站式營運管理平台。
+整合公告、排班、人事、財務與店務指導等十二項模組，讓總部與分店資訊同步無落差。
+            </p>
+            <span style={{ fontFamily: t.bodyFont, fontSize: '0.85rem', color: t.text, letterSpacing: '2px' }}>查看平台模組 →</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 引言區 */}
+      <section style={{ padding: '110px 10%', background: t.bgDeep, position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '780px' }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">OUR BELIEF</p>
+          <blockquote style={{ margin: 0, padding: '0 0 0 1.5rem', borderLeft: `2px solid ${accent}` }} className="fade-in">
+            <p style={{ fontFamily: t.bodyFont, fontSize: '1.25rem', fontWeight: 300, color: t.text, lineHeight: 1.85, letterSpacing: '0.5px' }}>
+              一間能長久經營的店，<br />
+              不是靠一位英雄式的老闆撐著，<br />
+              而是靠一套能讓每個人都對得上節奏的制度。
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* CTA band */}
+      <section style={{ background: t.bg, padding: '110px 10%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2.5rem', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div>
+          <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '4px', marginBottom: '1.2rem', lineHeight: 1.3, fontSize: "29px" }} className="fade-in">想了解蔚凝能為您做什麼</h2>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.72)', fontWeight: 300, lineHeight: 1.9, fontSize: "19px" }} className="fade-in">歡迎與我們聯繫，我們會依您的店況提供初步建議與合作方向。</p>
+        </div>
+        <button onClick={() => setPage('contact')} className="fade-in" style={{
+          background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.45)',
+          padding: '16px 44px', fontFamily: t.bodyFont, fontSize: '0.95rem',
+          letterSpacing: '2.5px', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.25s'
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+        onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
+          聯絡我們
+        </button>
+      </section>
+    </div>);
+
+}
+
+// ---- ABOUT ----
+function AboutPage({ t, accent }) {
+  useScrollFade('about');
+
+  const pillars = [
+  { tag: 'IT', label: '資安稽核', desc: '資料框架核對與企業業務資訊安全專案' },
+  { tag: 'PM', label: '專案管理', desc: '營運流程與企業專業實務的跨部門規劃' },
+  { tag: 'VI', label: '品牌視覺', desc: '以視覺語言提升企業整體規格與質感' },
+  { tag: 'F&B', label: '餐飲營運', desc: '實施真知灼見的營運顧問與精準管理優化' }];
+
+
+  return (
+    <div>
+      <section style={{ minHeight: '58vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 80px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px' }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">ABOUT WEINING</p>
+          <h1 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: '#fff', letterSpacing: '6px', marginBottom: '1.8rem', lineHeight: 1.08, fontSize: '2rem' }} className="fade-in">關於蔚凝</h1>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.95, fontWeight: 300, maxWidth: '520px' }} className="fade-in">
+            蔚凝是一間專注於餐飲營運優化的管理顧問公司
+          </p>
+        </div>
+      </section>
+
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        <div style={{ maxWidth: '780px' }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">OUR MISSION</p>
+          <blockquote style={{ margin: '0 0 2.5rem', padding: '0 0 0 1.5rem', borderLeft: `2px solid ${accent}` }} className="fade-in">
+            <p style={{ fontFamily: t.bodyFont, fontSize: '1.25rem', fontWeight: 300, color: t.text, lineHeight: 1.75, letterSpacing: '0.5px' }}>
+              不只是提供工具，而是透過跨領域的視角，<br />
+              為企業建立一套節省不必要時間成本的服務。<br />
+              一個願意與您對話、<br />
+              陪伴團隊、解決現場問題的夥伴。
+            </p>
+          </blockquote>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '1.3rem', fontWeight: 500, color: t.text, letterSpacing: '1px', borderTop: `1px solid ${t.borderColor}`, paddingTop: '2rem' }} className="fade-in">
+            蔚凝提供的就是這個角色。
+          </p>
+        </div>
+      </section>
+
+      <section style={{ padding: '110px 10%', background: t.bgDeep }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+          <div>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">FOUNDER</p>
+            <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '2px', marginBottom: '1.2rem', fontSize: "31px" }} className="fade-in">創辦人背景</h2>
+            <div style={{ width: '44px', height: '1px', background: accent, marginBottom: '2.5rem', opacity: 0.85 }} className="fade-in" />
+            <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.82)', lineHeight: 2, fontSize: '1.05rem', fontWeight: 300, marginBottom: '1.8rem' }} className="fade-in">
+              創辦人曾任職資安稽核公司，負責資料庫稽核與企業業務資訊安全專案；也曾任 CISCO、IBM 經銷商，處理企業專案管理、建立專案與政府標案規劃；同期以網拍攝影師身份累積品牌視覺的敏銳度。
+            </p>
+            <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.82)', lineHeight: 2, fontSize: '1.05rem', fontWeight: 300, marginBottom: '1.8rem' }} className="fade-in">
+              後來以顧問兼店長、人資、會計三職身份，獨立負責一間餐酒館的整體營運重整——從帳務流程、SOP 建立、人員制度，到品牌視覺優化，全程主導執行。
+            </p>
+            <p style={{ fontFamily: t.bodyFont, color: 'rgba(232,228,222,0.82)', lineHeight: 2, fontSize: '1.05rem', fontWeight: 300 }} className="fade-in">
+              這段橫跨多個領域的經歷，讓蔚凝能以全局視角協助每一位業主。
+            </p>
+          </div>
+          <div>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">EXPERTISE</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px' }}>
+              {pillars.map((p, i) =>
+              <div key={i} className="fade-in" style={{
+                background: t.cardBg, padding: '32px 26px', transition: 'all 0.3s', cursor: 'default'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = '#1b3a2d'}
+              onMouseLeave={(e) => e.currentTarget.style.background = t.cardBg}>
+                  <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', color: accent, fontWeight: 300, display: 'block', marginBottom: '1rem', letterSpacing: '1px' }}>{p.tag}</span>
+                  <h3 style={{ fontFamily: t.bodyFont, fontSize: '0.88rem', fontWeight: 500, color: t.text, marginBottom: '0.7rem', letterSpacing: '1px' }}>{p.label}</h3>
+                  <p style={{ fontFamily: t.bodyFont, fontSize: '0.78rem', color: t.textDim, lineHeight: 1.8, fontWeight: 300 }}>{p.desc}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>);
+
+}
+
+// ---- OPERATIONS ----
+function OperationsPage({ t, accent, setPage }) {
+  useScrollFade('operations');
+
+  const services = [
+  { title: '營運流程優化', items: ['外場 SOP 制定與執行', '店內制度重整，提升整體效率', '供應商篩選與管理', '行銷活動策劃與落地'] },
+  { title: '人力資源管理', items: ['招募、面試、員工培訓', '薪資架構與獎金制度設計', '合約審查與勞健保作業', '考核標準制定'] },
+  { title: '財務與損益監修', items: ['日常營收稽核', '成本控制與損耗分析', '月度報表與稅務協助'] },
+  { title: '品牌視覺監修', items: ['菜單設計與排版優化', '協助對接外部行銷團隊', '品牌視覺一致性控管'] }];
+
+
+  return (
+    <div>
+      <section style={{ minHeight: '55vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 80px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">OPERATIONS CONSULTING</p>
+          <h1 style={{ fontFamily: "'Noto Serif TC', serif", fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '6px', marginBottom: '1.5rem' }} className="fade-in">營運管理顧問服務</h1>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.62)', fontSize: '1rem', lineHeight: 1.95, maxWidth: '580px', fontWeight: 300 }} className="fade-in">
+            蔚凝提供的不是一次性諮詢，而是長期駐點式的營運顧問合作。<br />
+            依店家實際狀況進行現場觀察、數據檢視與優化建議，<br />
+            協助業主建立一套「帶得走」的管理系統。
+          </p>
+        </div>
+      </section>
+
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '60px', textTransform: 'uppercase' }} className="fade-in">SERVICE DETAILS</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2px' }}>
+          {services.map((s, i) =>
+          <div key={i} className="fade-in" style={{ background: t.cardBg, padding: '48px 40px', transition: 'all 0.35s', cursor: 'default' }}
+          onMouseEnter={(e) => e.currentTarget.style.background = '#1b3a2d'}
+          onMouseLeave={(e) => e.currentTarget.style.background = t.cardBg}>
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.8rem', color: accent, fontWeight: 300, display: 'block', marginBottom: '1.2rem' }}>0{i + 1}</span>
+              <h3 style={{ fontFamily: t.bodyFont, fontSize: '1rem', fontWeight: 500, color: t.text, marginBottom: '1.8rem', letterSpacing: '1px' }}>{s.title}</h3>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {s.items.map((item, j) =>
+              <li key={j} style={{
+                fontFamily: t.bodyFont, fontSize: '0.85rem', color: 'rgba(232,228,222,0.72)', lineHeight: 1.9,
+                fontWeight: 300, paddingLeft: '1.2rem', position: 'relative', marginBottom: '0.5rem'
+              }}>
+                    <span style={{ position: 'absolute', left: 0, color: accent, opacity: 0.8 }}>—</span>
+                    {item}
+                  </li>
+              )}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 合作方式 */}
+      <section style={{ padding: '120px 10%', background: t.bgDeep, position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '1rem', textTransform: 'uppercase' }} className="fade-in">ENGAGEMENT</p>
+          <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '8px', fontSize: '31px', marginBottom: '70px' }} className="fade-in">合 作 方 式</h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '80px', alignItems: 'flex-start' }}>
+            {/* 左：核心主張 */}
+            <div className="fade-in" style={{ borderLeft: `2px solid ${accent}`, paddingLeft: '2rem' }}>
+              <p style={{ fontFamily: t.bodyFont, fontSize: '0.72rem', letterSpacing: '4px', color: accent, marginBottom: '1.5rem', textTransform: 'uppercase', opacity: 0.9 }}>OUR POSITION</p>
+              <p style={{ fontFamily: t.headingFont, color: t.text, fontSize: '1.7rem', lineHeight: 1.65, fontWeight: t.headingWeight, letterSpacing: '2px' }}>
+                蔚凝深知，<br />
+                營運體質的優化<br />
+                無法一蹴而就。
+              </p>
+            </div>
+
+            {/* 右：條款細節 */}
+            <div className="fade-in">
+              {/* 合作週期 */}
+              <div style={{ paddingBottom: '2.4rem', borderBottom: `1px solid ${t.borderColor}`, marginBottom: '2.4rem' }}>
+                <p style={{ fontFamily: t.bodyFont, fontSize: '0.72rem', letterSpacing: '4px', color: t.textDim, marginBottom: '1.2rem', textTransform: 'uppercase' }}>合作週期</p>
+                <p style={{ fontFamily: t.bodyFont, color: t.text, fontSize: '1.05rem', lineHeight: 1.95, fontWeight: 300 }}>
+                  最小單位為<strong style={{ fontWeight: 500, color: accent }}>一季（三個月）</strong>，恕不接受單次諮詢。
+                </p>
+              </div>
+
+              {/* 長期專案優惠 */}
+              <div>
+                <p style={{ fontFamily: t.bodyFont, fontSize: '0.72rem', letterSpacing: '4px', color: t.textDim, marginBottom: '1.6rem', textTransform: 'uppercase' }}>長期專案優惠</p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: t.borderColor, marginBottom: '1.8rem' }}>
+                  <div style={{ background: t.bgDeep, padding: '28px 26px' }}>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', color: accent, fontWeight: 300, lineHeight: 1, marginBottom: '0.6rem', letterSpacing: '1px' }}>6 Months</p>
+                    <p style={{ fontFamily: t.bodyFont, fontSize: '0.85rem', color: t.textDim, marginBottom: '0.8rem', fontWeight: 300, letterSpacing: '1px' }}>半年期合作</p>
+                    <div style={{ width: '24px', height: '1px', background: accent, opacity: 0.6, marginBottom: '0.9rem' }} />
+                    <p style={{ fontFamily: t.bodyFont, fontSize: '0.98rem', color: t.text, fontWeight: 400, letterSpacing: '1px' }}>
+                      總額 <span style={{ color: accent, fontWeight: 500 }}>95 折</span>
+                    </p>
+                  </div>
+                  <div style={{ background: t.bgDeep, padding: '28px 26px' }}>
+                    <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', color: accent, fontWeight: 300, lineHeight: 1, marginBottom: '0.6rem', letterSpacing: '1px' }}>12 Months</p>
+                    <p style={{ fontFamily: t.bodyFont, fontSize: '0.85rem', color: t.textDim, marginBottom: '0.8rem', fontWeight: 300, letterSpacing: '1px' }}>年度合作計劃</p>
+                    <div style={{ width: '24px', height: '1px', background: accent, opacity: 0.6, marginBottom: '0.9rem' }} />
+                    <p style={{ fontFamily: t.bodyFont, fontSize: '0.98rem', color: t.text, fontWeight: 400, letterSpacing: '1px' }}>
+                      總額 <span style={{ color: accent, fontWeight: 500 }}>9 折</span>
+                    </p>
+                  </div>
+                </div>
+
+                <p style={{ fontFamily: t.bodyFont, fontSize: '0.78rem', color: t.textDim, lineHeight: 1.85, fontWeight: 300, fontStyle: 'italic' }}>
+                  ※ 實際服務費用將依店家規模、門店數量及需求深度進行綜合評估。歡迎預約初次諮詢，由蔚凝為您提供初步分析。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 合作流程 */}
+      <section style={{ padding: '120px 10%', background: t.bg, position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '80px', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <div>
+              <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '1rem', textTransform: 'uppercase' }} className="fade-in">PROCESS</p>
+              <h2 style={{ fontFamily: t.headingFont, fontWeight: t.headingWeight, color: t.text, letterSpacing: '8px', fontSize: '31px' }} className="fade-in">合 作 流 程</h2>
+            </div>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.92rem', color: t.textDim, fontWeight: 300, maxWidth: '380px', lineHeight: 1.95 }} className="fade-in">
+              從初次接觸到專案啟動，<br />五個階段，確保每一步都建立在共識之上。
+            </p>
+          </div>
+
+          {/* 垂直時間軸 */}
+          <div style={{ position: 'relative' }}>
+            {[
+            { num: '01', en: 'Initial Discovery', title: '免費初步諮詢', desc: '深入了解經營現況。在此階段，蔚凝「只聽、只問」，確保精準掌握問題核心。' },
+            { num: '02', en: 'Mutual Evaluation', title: '合作適切性評估', desc: '評估雙方理念是否契合，以及蔚凝的專業是否能確實解決您的營運痛點。' },
+            { num: '03', en: 'Strategic Proposal', title: '專案方案規劃', desc: '針對診斷結果，由蔚凝研擬專屬的營運優化提案。' },
+            { num: '04', en: 'Presentation', title: '提案會議', desc: '進行 PPT 簡報說明。為保護營運邏輯與商業機密，方案檔案僅限現場展示，恕不外流。' },
+            { num: '05', en: 'Kick-off', title: '正式啟動', desc: '完成合約簽署與首季費用支付後，營運優化專案正式啟動。' }].
+            map((step, i, arr) =>
+            <div key={i} className="fade-in" style={{
+              display: 'grid',
+              gridTemplateColumns: '180px 1fr',
+              gap: '60px',
+              padding: '50px 0',
+              borderBottom: i === arr.length - 1 ? 'none' : `1px solid ${t.borderColor}`,
+              alignItems: 'flex-start'
+            }}>
+                {/* 大數字 */}
+                <div>
+                  <span style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '6.5rem',
+                  fontWeight: 300,
+                  color: accent,
+                  lineHeight: 0.9,
+                  display: 'block',
+                  letterSpacing: '-2px'
+                }}>{step.num}</span>
+                </div>
+
+                {/* 內容 */}
+                <div style={{ paddingTop: '0.4rem' }}>
+                  <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '4px', color: accent, marginBottom: '1.2rem', textTransform: 'uppercase', opacity: 0.9 }}>{step.en}</p>
+                  <h3 style={{ fontFamily: t.headingFont, fontSize: '1.7rem', fontWeight: t.headingWeight, color: t.text, marginBottom: '1.4rem', letterSpacing: '3px' }}>{step.title}</h3>
+                  <div style={{ width: '32px', height: '1px', background: accent, opacity: 0.6, marginBottom: '1.4rem' }} />
+                  <p style={{ fontFamily: t.bodyFont, fontSize: '0.98rem', color: 'rgba(232,228,222,0.78)', lineHeight: 2, fontWeight: 300, maxWidth: '640px' }}>
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* CTA */}
+          <div style={{ marginTop: '90px', display: 'flex', justifyContent: 'center' }} className="fade-in">
+            <button onClick={() => setPage('contact')} style={{
+              background: 'transparent', color: t.text, border: `1px solid ${accent}`,
+              padding: '20px 56px', fontFamily: t.bodyFont, fontSize: '0.95rem',
+              letterSpacing: '4px', cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.3s',
+              display: 'inline-flex', alignItems: 'center', gap: '14px'
+            }}
+            onMouseEnter={(e) => {e.currentTarget.style.background = accent; e.currentTarget.style.color = t.bgDeep;}}
+            onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = t.text;}}>
+              立即諮詢
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.2rem', fontWeight: 300 }}>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQSection t={t} accent={accent} setPage={setPage} items={[
+        { q: '可以只針對某一個部分合作嗎？', a: '可以，蔚凝依店家實際需求規劃合作範疇，不強制全套導入。費用依店家規模與需求深度評估，歡迎預約諮詢。' },
+        { q: '最短合作期是多久？', a: '最短合作期為一季（三個月）。六個月總額 95 折，十二個月總額 9 折。' },
+        { q: '合作期間會實際到店嗎？', a: '依選擇方案與需求而定。深度駐點方案依合作階段調整頻率，初期密集進場，後期轉為定期檢視。' },
+        { q: '我的資料跟店裡的數據會外流嗎？', a: '所有合作皆於啟動前簽署保密協議，店家資料與營運數據受合約保障，蔚凝不對外揭露任何客戶資訊。' },
+        { q: '照建議做了但沒有效果，你們負責嗎？', a: '營運優化的成效取決於「專業判斷」與「執行落地」的緊密結合。蔚凝負責提供精準建議與路徑，執行細節則需店家團隊全力配合。若建議方案未能落實執行，蔚凝將據實記錄並保留專業意見，怕不對非可控因素之結果承擔責任，以確保雙方合作之透明與公正。' }
+      ]} />
+
+      <CTABand t={t} setPage={setPage} />
+    </div>);
+
+}
+
+// ---- NEXUS ----
+
+function NexusPage({ t, accent, setPage }) {
+  useScrollFade('nexus');
+  const [hovered, setHovered] = useState(null);
+
+  const modules = [
+  { name: '公告', en: 'Announcements', desc: '即時發佈公司政策與營運規範，確保總部與分店資訊同步無落差。' },
+  { name: '行事曆', en: 'Calendar', desc: '視覺化管理品牌重要日程、行銷排程與檔核時間。' },
+  { name: '排班管理', en: 'Scheduling', desc: '智能排班與人力成本控管，解決繁瑣的出勤記錄與調度難題。' },
+  { name: '人事資料', en: 'HR Records', desc: '數位化儲存員工合約、到職紀錄與訓練狀況，實現人才資產管理。' },
+  { name: '供應商管理', en: 'Vendors', desc: '整合進貨通路資訊與對帳窗口，掌握供應鏈的穩定性。' },
+  { name: '店務指導', en: 'Operations Guide', desc: '線上 SOP 與營運查核清單，確保現場執行力始終維持標準。' },
+  { name: '會議記錄', en: 'Meeting Minutes', desc: '結構化記錄每次會議決策與行動事項，建立可追溯的管理脈絡。' },
+  { name: '財務模組', en: 'Finance', desc: '自動薪資計算與財務報表整合，降低人工作業的錯誤風險。' },
+  { name: '薪資管理', en: 'Payroll', desc: '彈性設定薪資結構與獎金規則，符合各類型門店的人力成本需求。' },
+  { name: '公司資料夾', en: 'File Storage', desc: '集中管理品牌文件、合約與教育訓練素材，隨時隨地安全存取。' },
+  { name: '外部連結', en: 'External Links', desc: '整合常用的外部平台與工具連結，打造高效的工作入口。' },
+  { name: '系統設定', en: 'Settings', desc: '靈活配置權限、分店架構與系統參數，適應品牌成長的各個階段。' }];
+
+
+  return (
+    <div>
+      <section style={{ minHeight: '55vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 80px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">MANAGEMENT PLATFORM</p>
+          <h1 style={{ fontFamily: t.headingFont, fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '4px', marginBottom: '1rem' }} className="fade-in">WEINING NEXUS</h1>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.55)', fontSize: '0.88rem', letterSpacing: '2px', marginBottom: '1.2rem', fontWeight: 300 }} className="fade-in">
+</p>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.7)', fontSize: '1rem', fontWeight: 300, lineHeight: 1.9 }} className="fade-in">一站式解決方案，提升企業核心營運效率。</p>
+        </div>
+      </section>
+
+      {/* 12 modules */}
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: t.textDim, marginBottom: '1rem', textTransform: 'uppercase' }} className="fade-in">TWELVE MODULES</p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2px' }}>
+          {modules.map((m, i) => <div key={i} className="fade-in"
+          onMouseEnter={() => setHovered(i)}
+          onMouseLeave={() => setHovered(null)}
+          style={{
+            background: hovered === i ? '#1b3a2d' : t.cardBg,
+            padding: '36px 28px',
+            transition: 'all 0.3s',
+            cursor: 'default',
+            position: 'relative',
+            minHeight: '160px',
+            borderTop: `2px solid ${hovered === i ? accent : 'transparent'}`
+          }}>
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.6rem', color: accent, fontWeight: 300, display: 'block', marginBottom: '0.6rem', opacity: hovered === i ? 0 : 1, transition: 'opacity 0.25s' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 style={{ fontFamily: t.bodyFont, fontSize: '0.95rem', fontWeight: 500, color: t.text, letterSpacing: '1px', marginBottom: '0.3rem', transition: 'color 0.25s' }}>{m.name}</h3>
+              <p style={{ fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, letterSpacing: '1px' }}>{m.en}</p>
+              {hovered === i &&
+            <p style={{
+              position: 'absolute', inset: 0, padding: '28px',
+              fontFamily: t.bodyFont, fontSize: '0.85rem', color: 'rgba(255,255,255,0.82)',
+              lineHeight: 1.85, fontWeight: 300,
+              display: 'flex', alignItems: 'center',
+              background: '#1b3a2d',
+              borderTop: `2px solid ${accent}`
+            }}>{m.desc}</p>
+            }
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQSection t={t} accent={accent} setPage={setPage} items={[
+        { q: 'Weining Nexus 跟市面上其他餐廳系統有什麼不一樣？', a: '市面上大部分系統只解決單一問題。Weining Nexus 由真正具備實戰經驗的營運顧問設計，將排班、人事、財務、供應商、公告、督導整合在同一戰情室，讓管理者實現真正的數據驅動決策。' },
+        { q: 'Weining Nexus 適合什麼樣的店？', a: '適合希望遠端掌握營運狀況、但現場缺乏完整管理制度的餐廳與餐飲空間；也適合有資源投入經營、但希望減少日常管理介入的老闆。系統以實際營運需求為出發點設計，不需要 IT 背景，開店就能上手。' },
+        { q: '可以同時使用 Weining Nexus 又聘請蔚凝做顧問服務嗎？', a: '完全可以，而且這是我們最推薦的合作方式。Weining Nexus 負責讓營運數據透明化，顧問服務負責解讀數據、提出判斷與優化建議。系統看得到問題，顧問告訴你怎麼解決——兩者搭配，才是真正完整的營運支援。', linkLabel: '了解顧問服務如何與系統協作', linkTo: 'operations' }
+      ]} />
+
+      <CTABand t={t} setPage={setPage} />
+    </div>);
+
+}
+
+// ---- PRIVACY ----
+function PrivacyPage({ t, accent }) {
+  useScrollFade('privacy');
+  const sections = [
+  { title: '一、資料蒐集之目的', body: '我們蒐集您的資料僅用於：提供餐飲營運諮詢服務與聯繫、進行初步商業評估與提案準備、回覆您的詢問或提供相關服務資訊。' },
+  { title: '二、蒐集之資料類別', body: '當您使用聯絡表單時，我們可能會蒐集您的姓名、公司名稱、電話、電子郵件及您主動提供的諮詢內容。' },
+  { title: '三、資料利用期間與對象', body: '您的資料僅由本公司內部顧問團隊使用。除非取得您的同意或法令另有規定，本公司絕不會將您的資料提供給第三方、或用於非上述目的之商業行為。' },
+  { title: '四、資料安全保護', body: '我們採取標準的安全技術與程序，確保您的資料不被未經授權的存取、毀損或洩露。' },
+  { title: '五、您的權利', body: '您可以隨時聯繫本公司（weiningmgmt@gmail.com），要求查詢、更正或刪除您的個人資料。' }];
+
+  return (
+    <div>
+      <section style={{ minHeight: '40vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 70px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2rem', textTransform: 'uppercase' }} className="fade-in">PRIVACY POLICY</p>
+          <h1 style={{ fontFamily: t.headingFont, fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '5px' }} className="fade-in">隱私政策</h1>
+        </div>
+      </section>
+      <section style={{ padding: '100px 10%', background: t.bg }}>
+        <div style={{ maxWidth: '760px' }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '1rem', color: t.textDim, lineHeight: 2, fontWeight: 300, marginBottom: '3.5rem' }} className="fade-in">
+            歡迎訪問蔚凝管理顧問有限公司（以下簡稱「本公司」）。我們極為重視您的隱私權，並承諾依據中華民國《個人資料保護法》及相關法令要求，保護您在本網站所提供的個人與商業資訊。
+          </p>
+          {sections.map((s, i) =>
+          <div key={i} className="fade-in" style={{ marginBottom: '3rem', paddingBottom: '3rem', borderBottom: `1px solid ${t.borderColor}` }}>
+              <h2 style={{ fontFamily: t.bodyFont, fontSize: '1rem', fontWeight: 500, color: t.text, letterSpacing: '1px', marginBottom: '1.2rem' }}>{s.title}</h2>
+              <p style={{ fontFamily: t.bodyFont, fontSize: '0.95rem', color: t.textDim, lineHeight: 2, fontWeight: 300 }}>{s.body}</p>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>);
+
+}
+
+// ---- TERMS ----
+function TermsPage({ t, accent }) {
+  useScrollFade('terms');
+  return (
+    <div>
+      <section style={{ minHeight: '40vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 70px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2rem', textTransform: 'uppercase' }} className="fade-in">TERMS OF USE</p>
+          <h1 style={{ fontFamily: t.headingFont, fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '5px' }} className="fade-in">使用條款</h1>
+        </div>
+      </section>
+      <section style={{ padding: '120px 10%', background: t.bg, display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '30vh' }}>
+        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.8rem', color: t.textDim, fontStyle: 'italic', letterSpacing: '2px', textAlign: 'center' }} className="fade-in">
+          內容籌備中，即將上線。
+        </p>
+      </section>
+    </div>);
+
+}
+
+// ---- CONTACT ----
+function ContactPage({ t, accent }) {
+  useScrollFade('contact');
+  const [submitted, setSubmitted] = useState(false);
+  const [fadingOut, setFadingOut] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const formRef = useRef(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setError('');
+    try {
+      const data = new FormData(formRef.current);
+      const res = await fetch("https://formspree.io/f/mojrkylk", {
+        method: 'POST', body: data, headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        setFadingOut(true);
+        setTimeout(() => setSubmitted(true), 550);
+      } else {
+        setError('傳送失敗，請稍後再試或直接聯繫官方信箱。');
+      }
+    } catch (_) {
+      setError('傳送失敗，請稍後再試或直接聯繫官方信箱。');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const inputStyle = { width: '100%', padding: '14px 16px', background: '#222120', border: `1px solid ${t.borderColor}`, color: t.text, outline: 'none', fontFamily: t.bodyFont, fontSize: '0.9rem', transition: 'border-color 0.22s' };
+  const focusIn = (e) => e.target.style.borderColor = '#1b3a2d';
+  const focusOut = (e) => e.target.style.borderColor = t.borderColor;
+
+  return (
+    <div>
+      <section style={{ minHeight: '50vh', display: 'flex', alignItems: 'flex-end', padding: '100px 10% 80px', background: 'rgba(8, 18, 12, 0.97)', position: 'relative', overflow: 'hidden' }}>
+        <FloatingDots />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: 'rgba(255,255,255,0.45)', marginBottom: '2.5rem', textTransform: 'uppercase' }} className="fade-in">CONTACT US</p>
+          <h1 style={{ fontFamily: t.headingFont, fontSize: '2rem', fontWeight: t.headingWeight, color: '#fff', letterSpacing: '6px', marginBottom: '1rem' }} className="fade-in">聯絡我們</h1>
+          <p style={{ fontFamily: t.bodyFont, color: 'rgba(255,255,255,0.62)', fontSize: '1rem', maxWidth: '500px', lineHeight: 1.95, fontWeight: 300 }} className="fade-in">有任何問題或合作洽詢，歡迎填寫表單，我們將儘速與您聯繫。</p>
+        </div>
+      </section>
+      <section style={{ padding: '110px 10%', background: t.bg }}>
+        {submitted ?
+        <div style={{
+          textAlign: 'center', padding: '80px 20px', maxWidth: '680px', margin: '0 auto',
+          opacity: 0, animation: 'weining-fadein 0.7s ease-out forwards'
+        }}>
+            <div style={{ width: '56px', height: '1px', background: '#d4af37', margin: '0 auto 2.8rem', opacity: 0.85 }} />
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.7rem', letterSpacing: '5px', color: '#d4af37', marginBottom: '2rem', textTransform: 'uppercase', opacity: 0.85 }}>THANK YOU</p>
+            <h2 style={{ fontFamily: t.headingFont, fontSize: '2.2rem', fontWeight: t.headingWeight, color: '#d4af37', letterSpacing: '4px', marginBottom: '2rem', lineHeight: 1.4 }}>
+              諮詢訊息已成功送出
+            </h2>
+            <p style={{ fontFamily: t.bodyFont, fontSize: '1rem', color: 'rgba(232,228,222,0.78)', lineHeight: 2, fontWeight: 300, letterSpacing: '1px', maxWidth: '500px', margin: '0 auto' }}>
+              感謝您的信任。<br />蔚凝將於 24 小時內，<br />由專人與您聯繫初步諮詢事宜。
+            </p>
+          </div> :
+
+        <form ref={formRef} onSubmit={handleSubmit} action="https://formspree.io/f/mojrkylk" method="POST" style={{
+          maxWidth: '680px', margin: '0 auto',
+          opacity: fadingOut ? 0 : 1,
+          transform: fadingOut ? 'translateY(-12px)' : 'translateY(0)',
+          transition: 'opacity 0.55s ease-out, transform 0.55s ease-out',
+          pointerEvents: fadingOut ? 'none' : 'auto'
+        }}>
+            {/* Hidden fields */}
+            <input type="hidden" name="_subject" value="蔚凝管理顧問 - 新客戶諮詢" />
+            <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }} aria-hidden="true" />
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+              <div className="fade-in">
+                <label style={{ display: 'block', fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, marginBottom: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase' }}>姓名 *</label>
+                <input required name="name" style={inputStyle} placeholder="您的稱呼" onFocus={focusIn} onBlur={focusOut} />
+              </div>
+              <div className="fade-in">
+                <label style={{ display: 'block', fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, marginBottom: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase' }}>電話 *</label>
+                <input required type="tel" name="tel" style={inputStyle} placeholder="聯絡電話" onFocus={focusIn} onBlur={focusOut} />
+              </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+              <div className="fade-in">
+                <label style={{ display: 'block', fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, marginBottom: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase' }}>電子信箱</label>
+                <input type="email" name="email" style={inputStyle} placeholder="your@email.com" onFocus={focusIn} onBlur={focusOut} />
+              </div>
+              <div className="fade-in">
+                <label style={{ display: 'block', fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, marginBottom: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase' }}>店家名稱 / 品牌</label>
+                <input name="brand" style={inputStyle} placeholder="您的品牌或店家" onFocus={focusIn} onBlur={focusOut} />
+              </div>
+            </div>
+            <div style={{ marginBottom: '2rem' }} className="fade-in">
+              <label style={{ display: 'block', fontFamily: t.bodyFont, fontSize: '0.75rem', color: t.textDim, marginBottom: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase' }}>諮詢需求 *</label>
+              <textarea required name="message" rows={6} style={{ ...inputStyle, resize: 'vertical' }} placeholder="請描述您的需求或品牌遇到的問題" onFocus={focusIn} onBlur={focusOut} />
+            </div>
+            {error &&
+            <p style={{ fontFamily: t.bodyFont, fontSize: '0.85rem', color: '#c46b6b', marginBottom: '1.2rem', letterSpacing: '1px' }}>{error}</p>
+            }
+            <button type="submit" disabled={submitting} className="fade-in" style={{
+              width: '100%', padding: '18px',
+              background: submitting ? '#3a3a3a' : '#d4af37',
+              color: submitting ? 'rgba(255,255,255,0.6)' : '#1b1a1a',
+              border: 'none', cursor: submitting ? 'wait' : 'pointer',
+              fontFamily: t.bodyFont, fontSize: '0.9rem', letterSpacing: '3px',
+              fontWeight: 500, transition: 'all 0.25s',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px'
+            }}
+            onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.background = '#e6c14d'; }}
+            onMouseLeave={(e) => { if (!submitting) e.currentTarget.style.background = '#d4af37'; }}>
+              {submitting ?
+              <>
+                  <span style={{
+                  width: '14px', height: '14px',
+                  border: '2px solid rgba(27,26,26,0.25)',
+                  borderTopColor: 'rgba(27,26,26,0.85)',
+                  borderRadius: '50%',
+                  display: 'inline-block',
+                  animation: 'weining-spin 0.8s linear infinite'
+                }} />
+                  傳送中...
+                </> :
+              <>送出諮詢表單</>
+              }
+            </button>
+          </form>
+        }
+      </section>
+    </div>);
+
+}
+
+// ---- FOOTER ----
+function Footer({ t, accent, setPage }) {
+  return (
+    <footer style={{ background: '#0d0d0d', padding: '70px 10%', borderTop: `1px solid ${t.borderColor}` }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.2rem' }}>
+        <p style={{ fontFamily: t.bodyFont, fontSize: '0.78rem', color: t.textDim, fontWeight: 300, letterSpacing: '1.2px', textAlign: 'center', lineHeight: 1.8 }}>© 2026 Weining Management Consulting. All Rights Reserved.</p>
+        <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', height: "2px" }}>
+          <span onClick={() => setPage('privacy')} style={{ fontFamily: t.bodyFont, color: t.textDim, cursor: 'pointer', transition: 'color 0.2s', letterSpacing: '1px', fontSize: "13.5px" }}
+          onMouseEnter={(e) => e.target.style.color = t.text} onMouseLeave={(e) => e.target.style.color = t.textDim}>隱私政策</span>
+          <span style={{ color: t.textDim, opacity: 0.45 }}>｜</span>
+          <span onClick={() => setPage('terms')} style={{ fontFamily: t.bodyFont, color: t.textDim, cursor: 'pointer', transition: 'color 0.2s', letterSpacing: '1px', fontSize: "13.5px" }}
+          onMouseEnter={(e) => e.target.style.color = t.text} onMouseLeave={(e) => e.target.style.color = t.textDim}>使用條款</span>
+        </div>
+      </div>
+    </footer>);
+
+}
+
+// ---- APP ----
+function App() {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [page, setPage] = useState('home');
+
+  const themeBase = THEMES[tweaks.theme] || THEMES.elegant;
+  const t = { ...themeBase, theme: tweaks.theme };
+  const accent = tweaks.accentColor;
+
+  const navigate = (id) => {
+    setPage(id);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const renderPage = () => {
+    const props = { t, accent, setPage: navigate };
+    switch (page) {
+      case 'home':return <HomePage {...props} />;
+      case 'about':return <AboutPage {...props} />;
+      case 'operations':return <OperationsPage {...props} />;
+      case 'nexus':return <NexusPage {...props} />;
+      case 'contact':return <ContactPage {...props} />;
+      case 'privacy':return <PrivacyPage {...props} />;
+      case 'terms':return <TermsPage {...props} />;
+      default:return <HomePage {...props} />;
+    }
+  };
+
+  return (
+    <div style={{ background: t.bg, minHeight: '100vh' }}>
+      <Nav t={t} page={page} setPage={navigate} />
+      {renderPage()}
+      <Footer t={t} accent={accent} setPage={navigate} />
+      <TweaksPanel>
+        <TweakSection label="設計風格">
+          <TweakRadio id="theme" label="主題" options={[{ value: 'elegant', label: '典雅版' }, { value: 'modern', label: '現代版' }]} />
+        </TweakSection>
+        <TweakSection label="色彩">
+          <TweakColor id="accentColor" label="點綴色" />
+        </TweakSection>
+      </TweaksPanel>
+    </div>);
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
